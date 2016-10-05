@@ -1,0 +1,30 @@
+.content__list{
+  margin: 0;
+  padding: 0;
+}
+
+.content__item{
+  height: 500px;
+  background-color: #9CCDFF;    // remove this!
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.product__img{
+  overflow: hidden;
+  display: inline-block;
+}
+
+.product__img > img {
+  max-height: 350px;
+  max-width: 250px;
+}
+
+.product__description{
+  display: inline-block;
+}
+
+.product__price{
+  display: inline-block;
+}

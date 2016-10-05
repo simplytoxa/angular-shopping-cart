@@ -1,0 +1,27 @@
+<main class="content">
+  <ul class="content__list">
+    <li class="content__item" ng-repeat="(x, y) in $ctrl.list">
+      <div class="product">
+        <h1 class="poduct__title">{{y.title}}</h1>
+
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="product__img"><img src="{{y.picture}}" alt="image" class="img-rounded"></div>
+          </div>
+
+          <div class="col-sm-8">
+            <div class="product__description">{{y.description}}</div>
+          </div>
+        </div>
+
+        <div class="product__price">
+          Price: <span>{{y.price | currency:"$"}}</span> + $12.99 shipping
+        </div>
+
+        <button type="button" class="btn btn-warning">
+          <span class="glyphicon glyphicon-shopping-cart"></span> Add to cart
+        </button>
+      </div>
+    </li>
+  </ul>
+</main>
