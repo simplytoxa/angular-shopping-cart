@@ -2,23 +2,30 @@
   <ul class="content__list">
     <li class="content__item" ng-repeat="(x, y) in $ctrl.list">
       <div class="product">
-        <h1 class="poduct__title">{{y.title}}</h1>
+        <div class="product__sale">Only {{y.quantity}} left in stock</div>
+
+        <h3 class="poduct__title text-center">{{y.title}}</h3>
 
         <div class="row">
-          <div class="col-sm-4">
-            <div class="product__img"><img src="{{y.picture}}" alt="image" class="img-rounded"></div>
+          <div class="col-sm-3 product__img">
+            <img src="{{y.picture}}" alt="image" class="img-rounded">
           </div>
 
-          <div class="col-sm-8">
-            <div class="product__description">{{y.description}}</div>
+          <div class="col-sm-9">
+            <div class="product__description">
+              <ul class="product__description-list">
+                <li class="product__description-item" ng-repeat="a in y.description track by $index">{{a}}</li>
+              </ul>
+            </div>
           </div>
         </div>
+
 
         <div class="product__price">
           Price: <span>{{y.price | currency:"$"}}</span> + $12.99 shipping
         </div>
 
-        <button type="button" class="btn btn-warning">
+        <button type="button" class="btn btn-warning product__btn">
           <span class="glyphicon glyphicon-shopping-cart"></span> Add to cart
         </button>
       </div>

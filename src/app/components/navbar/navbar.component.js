@@ -1,6 +1,6 @@
 class NavbarController {
   constructor() {
-    this.hello = 'Anton';
+    this.search = '';
   }
 }
 
