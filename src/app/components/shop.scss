@@ -1,0 +1,269 @@
+@mixin placeholder {
+  &::-webkit-input-placeholder { @content; }
+  &:-moz-placeholder           { @content; }
+  &::-moz-placeholder          { @content; }
+  &:-ms-input-placeholder      { @content; }
+}
+
+body{
+  background: url("../assets/background.png");
+}
+
+.navbar-menu{
+  margin-top: 10px;
+  display: inline-block;
+  position: relative;
+}
+
+.navbar-brand__link{
+  font-size: 25px;
+  color: #fff;
+
+  &:hover{
+    color: #ADD8E6;
+  }
+}
+.navbar-right{
+  margin-right: 100px !important;
+}
+.search{
+  width: 200px;
+  position: relative;
+  margin-top: 7px;
+  margin-bottom: 0 !important;
+  float: left;
+}
+.search__input{
+  padding-left: 30px !important;
+  border-radius: 20px !important;
+
+  @include placeholder {
+    text-indent: 0;
+    transition: text-indent 300ms;
+  }
+
+  &:focus {
+    @include placeholder {
+      text-indent: 500px;
+    }
+  }
+
+}
+.search__icon{
+  position: absolute !important;
+  top: 10px !important;
+  left: 10px !important;
+  color: #808080;
+}
+
+.cart{
+  display: inline-block;
+  font-size: 20px;
+  float: left;
+  margin-top: 10px;
+  margin-left: 20px;
+  position: relative;
+}
+
+.cart__link{
+  color: #fff;
+
+  &:hover{
+    color: #ADD8E6;
+  }
+}
+.cart__quantity{
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: -5px;
+  right: -10px;
+  border-radius: 50%;
+  background-color: #FFA500;
+  z-index: 2;
+  color: #fff;
+  font-size: 13px;
+  text-align: center;
+  line-height: 1.2;
+}
+
+
+.content__list{
+  margin: 0;
+  padding: 0;
+}
+
+.content__item{
+  list-style-type: none;
+  margin-bottom: 20px;
+  padding: 0;
+  border-radius: 10px;
+}
+
+.product{
+  padding: 30px;
+  background-color: #9CCDFF;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
+
+  &:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+.poduct__title{
+  text-transform: uppercase;
+}
+.product__img{
+  overflow: hidden;
+  display: inline-block;
+
+  & > img {
+    max-height: 250px;
+    max-width: 150px;
+  }
+}
+
+.product__description{
+  display: inline-block;
+}
+
+.product__price{
+  display: inline-block;
+
+  & > span{
+    color: #8B0000;
+    font-weight: 600;
+  }
+}
+.product__sale{
+  color: #008000;
+  display: inline-block;
+  float: right;
+}
+
+.product__btn{
+  float: right;
+  width: 150px;
+
+  & > span{
+    margin-right: 20px;
+  }
+}
+
+
+.cart-block{
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  border: 1px solid grey;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  & span{
+    color: #8B0000;
+    font-weight: 600;
+  }
+}
+
+.arrow-top {
+  position: absolute;
+  width: 0;
+  height: 0;
+  line-height: 0;
+  border: 20px solid black;
+  border-bottom-color: grey;
+  right: 83px;
+  top: -40px;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+.arrow-top:after {
+  content:'';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 18px solid #fff;
+  left: -18px;
+  top: -17px;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+
+.cart-block__img{
+  width: 150px;
+  display: inline-block;
+  vertical-align: top;
+
+  & > img {
+    max-width: 100%;
+  }
+}
+
+.cart-block__right{
+  display: inline-block;
+  vertical-align: top;
+}
+
+.cart-block__title{
+  text-transform: uppercase;
+}
+
+.cart-block__price{
+
+}
+
+.cart-block__total{
+  text-align: center;
+}
+
+.cart-block__list{
+  margin: 0;
+  padding: 0;
+}
+
+.cart-block__item{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 768px){
+  .navbar-right {
+    float: right!important;
+  }
+
+  .product__img{
+    width: 100% !important;
+    text-align: center;
+  }
+  .product__price{
+    margin: 10px auto;
+    display: block;
+    text-align: center;
+  }
+}
+
+@media (max-width: 612px){
+  .navbar-right{
+    margin-right: 0 !important;
+  }
+  .arrow-top{
+    display: none;
+  }
+}
+@media (max-width: 321px) {
+  .navbar-menu{
+    display: none;
+  }
+
+  .navbar-right{
+    float: none !important;
+  }
+}
+

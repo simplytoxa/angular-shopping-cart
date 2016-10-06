@@ -1,0 +1,75 @@
+<nav class="navbar navbar-static-top navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-menu">
+      <a class="navbar-brand__link" href="#">
+        <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-right">
+      <div class="form-group search">
+        <input type="text" class="form-control search__input" placeholder="Search" ng-model="search">
+        <span class="glyphicon glyphicon-search search__icon"></span>
+      </div>
+      <div class="cart">
+        <div class="cart__quantity">{{$ctrl.quantity}}</div>
+        <a href="#" class="cart__link" ng-click="$ctrl.showCart()">
+          <span class="glyphicon glyphicon-shopping-cart"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main class="content">
+  <ul class="content__list">
+    <li class="content__item" ng-repeat="(x, y) in $ctrl.list | filter:search">
+      <div class="product clearfix">
+        <div class="product__sale">Only {{y.quantity}} left in stock</div>
+
+        <h3 class="poduct__title text-center">{{y.title}}</h3>
+
+        <div class="row">
+          <div class="col-sm-3 product__img">
+            <img ng-src="{{y.picture}}" alt="image" class="img-rounded">
+          </div>
+
+          <div class="col-sm-9">
+            <div class="product__description">
+              <ul class="product__description-list">
+                <li class="product__description-item" ng-repeat="a in y.description track by $index">{{a}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="product__price">
+          Price: <span>{{y.price | currency:"$"}}</span> + $12.99 shipping
+        </div>
+
+        <button type="button" class="btn btn-warning product__btn" ng-click="$ctrl.addToCart(y.picture, y.title, y.price)">
+          <span class="glyphicon glyphicon-shopping-cart"></span> Add to cart
+        </button>
+      </div>
+    </li>
+  </ul>
+</main>
+
+<div class="cart-block" ng-show="$ctrl.show">
+  <div class="arrow-top"></div>
+
+  <ul class="cart-block__list">
+    <li class="cart-block__item" ng-repeat="(x, y) in $ctrl.productArr">
+      <div class="cart-block__img"><img ng-src="{{y.photo}}" alt="Product image"></div>
+
+      <div class="cart-block__right">
+        <h3 class="cart-block__title">{{y.title}}</h3>
+        <div class="cart-block__price">
+          Price: <span>{{y.price | currency:"$"}}</span> + $12.99 shipping
+        </div>
+      </div>
+    </li>
+  </ul>
+  <hr>
+  <div class="cart-block__total">Total: <span>{{$ctrl.totalPrice + 12.99 * $ctrl.quantity | currency:"$"}}</span></div>
+</div>
