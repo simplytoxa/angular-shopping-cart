@@ -5,7 +5,7 @@ class cartController{
 
     $http({
       method: 'GET',
-      url: 'http://www.json-generator.com/api/json/get/bHwJUxxovC?indent=2'
+      url: 'http://www.json-generator.com/api/json/get/ckwNvSuDxe?indent=2'
     }).then(response => {
       this.list = response.data;
     });
